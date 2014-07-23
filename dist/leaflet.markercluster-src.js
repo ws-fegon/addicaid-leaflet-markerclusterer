@@ -532,7 +532,7 @@ L.MarkerClusterGroup = L.FeatureGroup.extend({
 			if (cluster._zoom < 0) {
 				//Top level, do nothing
 				break;
-			} else if (removeFromDistanceGrid && cluster._childCount <= 1) { //Cluster no longer required
+			} else if (removeFromDistanceGrid && cluster._childCount <= 1 && cluster.__parent) { //Cluster no longer required
 				//We need to push the other marker up to the parent
 				otherMarker = cluster._markers[0] === marker ? cluster._markers[1] : cluster._markers[0];
 
